@@ -24,39 +24,34 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'nullable|string|max:191',
-            'last_name' => 'nullable|string|max:191',
-            'telephone' => 'nullable|string|max:191',
-            'rfc' => 'nullable|string|max:191',
-            'address' => 'nullable|string|max:500',
-            'contact_name' => 'nullable|string|max:191',
-            'role_id' => 'nullable|numeric',
-            'status' => 'nullable|numeric'
+            'name' => 'required|string|max:191',
+            'last_name' => 'required|string|max:191',
+            'job' => 'required|string|max:191',
+            'birthday' => 'required|string|max:191',
+            'estatus' => 'nullable|numeric',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'boolean'       => 'El campo :attribute debe ser del tipo booleano.',
-            'max'       => 'El campo :attribute excede el límite de :max caracteres.',
+            'confirmed' => 'El campo :attribute no coincide con la confirmación de :attribute.',
+            'max' => 'El campo :attribute excede el límite de :max caracteres.',
+            'numeric' => 'El campo :attribute debe ser numérico.',
             'required' => 'El campo :attribute es obligatorio.',
-            'string'    => 'El campo :attribute debe ser del tipo texto.'
+            'string' => 'El campo :attribute debe ser del tipo texto.',
+            'unique' => 'El :attribute ya se encuentra registrado.'
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'Nombre',
-            'last_name' => 'Apellido',
-            'telephone' => 'Teléfono',
-            'rfc' => 'RFC',
-            'address' => 'Dirección',
-            'contact_name' => 'Nombre de Contacto',
-            'role_id' => 'Id Rol',
-            'status' => 'Estatus',
-            'franchise_id' => 'Id Franquicia',
+            'name' => 'Nombres',
+            'last_name' => 'Apellidos',
+            'job' => 'Puesto de trabajo',
+            'birthday' => 'Fecha de nacimiento',
+            'estatus' => 'Estatus',
         ];
     }
 }

@@ -27,22 +27,17 @@ class UserStoreRequest extends FormRequest
             'name' => 'required|string|max:191',
             'last_name' => 'required|string|max:191',
             'email' => 'required|email|unique:users',
-            'telephone' => 'nullable|string|max:191',
-            'rfc' => 'nullable|string|max:191',
-            'address' => 'nullable|string|max:500',
-            'contact_name' => 'nullable|string|max:191',
+            'job' => 'required|string|max:191',
+            'birthday' => 'required|string|max:191',
+            'estatus' => 'nullable|numeric',
             'password' => 'required|confirmed|string|max:191',
             'password_confirmation' => 'required|string|max:191',
-            'role_id' => 'required|numeric',
-            'status' => 'nullable|numeric',
-            'franchise_id' => 'nullable|numeric'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'boolean' => 'El campo :attribute debe ser del tipo booleano.',
             'confirmed' => 'El campo :attribute no coincide con la confirmación de :attribute.',
             'email' => 'El campo :attribute debe ser del tipo email.',
             'max' => 'El campo :attribute excede el límite de :max caracteres.',
@@ -56,17 +51,14 @@ class UserStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'Nombre',
-            'last_name' => 'Apellido',
-            'telephone' => 'Teléfono',
-            'rfc' => 'RFC',
-            'address' => 'Dirección',
-            'contact_name' => 'Nombre de Contacto',
+            'name' => 'Nombres',
+            'last_name' => 'Apellidos',
+            'email' => 'Email',
+            'job' => 'Puesto de trabajo',
+            'birthday' => 'Fecha de nacimiento',
+            'estatus' => 'Estatus',
             'password' => 'Contraseña',
             'password_confirmation' => 'Confirmación de Contraseña',
-            'role_id' => 'Id Rol',
-            'status' => 'Estatus',
-            'franchise_id' => 'Id Franquicia',
         ];
     }
 }
